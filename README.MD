@@ -34,20 +34,43 @@ You will need a lot of other requirements (e.g. Slack API secrets, etc) that you
 
 ## Credits
 
-TODO: Write credits
+Kawod Bot makes use of several superb Python Packages. Some include:
+* [Pony ORM](https://ponyorm.com/): The most pythonic ORM (cool "Talk Python"-episode [here](https://talkpython.fm/episodes/show/87/ponyorm-the-most-pythonic-orm-yet))
+* [PRAW](https://praw.readthedocs.io/): The Python Reddit API Wrapper
+* [Requests](http://python-requests.org/): HTTP for Humans. So simple, you gotta love it!
 
 ## License
 
-TODO: Write license
+MIT License
+
+Copyright (c) 2017 Thomas Schmitt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
-##Todos
+## Todos
 
-###What is this supposed to do:
+### What is this supposed to do:
 
 1. ~~Collect popular posts from /r/Entrepreneur (24h)~~
 2. Collect popular comments from /r/Entrepreneur (24h)
-3. ~~Collect news stories on fair fashion
+3. ~~Collect news stories on fair fashion~~
 4. Collect twitter posts
 5. Collect new blog posts from blog collection - Feeds parsen: http://www.pythonforbeginners.com/feedparser/using-feedparser-in-python
 6. ~~Check for dupes~~
@@ -55,7 +78,7 @@ TODO: Write license
 8. ~~Post summary to Slack channel~~
 
 
-###OOP-Redesign:
+### OOP-Redesign:
 
 Post-Types are objects that can:
 
