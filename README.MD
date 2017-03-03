@@ -7,17 +7,17 @@ An early-stage content crawler to assist in content discovery in the eco- and fa
 Really not recommended. But if you must:
 
 1. Create a virtual environment with [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)
-2. Setup the needed environment variables in the ´postactivate´ script
-3. Clone the repo: ´https://github.com/mrgnth/kawod_bot.git´
-4. Then install the needed python libraries: ´pip install -r requirements.txt´
+2. Setup the needed environment variables in the `postactivate` script
+3. Clone the repo: `https://github.com/mrgnth/kawod_bot.git`
+4. Then install the needed python libraries: `pip install -r requirements.txt`
 5. Let 'er rip!
 
-You will need a lot of other requirements (e.g. Slack API secrets, etc) that you can gather from the ´settings.py´
+You will need a lot of other requirements (e.g. Slack API secrets, etc) that you can gather from the `settings.py`
 
 ## Usage
 
 1. Confige all settings in the settings.py
-2. Type ´python main.py´ and away you go.
+2. Type `python main.py` and away you go.
 
 
 ## Contributing
