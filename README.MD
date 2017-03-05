@@ -72,7 +72,7 @@ SOFTWARE.
 2. Collect popular comments from /r/Entrepreneur (24h)
 3. ~~Collect news stories on fair fashion~~
 4. Collect twitter posts
-5. Collect new blog posts from blog collection - Feeds parsen: http://www.pythonforbeginners.com/feedparser/using-feedparser-in-python
+5. Collect new blog posts from blog collection (RSS)
 6. ~~Check for dupes~~
 7. ~~Push them to DB~~
 8. ~~Post summary to Slack channel~~

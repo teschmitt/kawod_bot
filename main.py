@@ -9,7 +9,7 @@ from bots import reddit_bot, newsriver_bot, slack_bot
 
 # setup the logger
 logger = logging.getLogger(__name__)
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=settings.LOG_LEVEL)
 
 
 if __name__ == '__main__':

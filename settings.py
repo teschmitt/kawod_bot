@@ -1,4 +1,4 @@
-import os, urllib.parse
+import os, urllib.parse, logging
 
 # All the auth strings are in environment, so yeah, there's that.
 NR_AUTH = os.environ["NR_AUTH"]
@@ -26,7 +26,7 @@ TWITTER_CONS_SECRET = os.environ["TWITTER_CONS_SECRET"]
 TWITTER_ACC_TOKEN = os.environ["TWITTER_ACC_TOKEN"]
 TWITTER_ACC_SECRET = os.environ["TWITTER_ACC_SECRET"]
 
-LOG_LEVEL = "ERROR"
+LOG_LEVEL = logging.ERROR
 MARK_PUBLISHED = True
 
 SUBREDDIT_LIST = ['entrepreneur', 'startups']
