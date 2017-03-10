@@ -39,6 +39,7 @@ Kawod Bot makes use of several superb Python Packages. Some include:
 * [Pony ORM](https://ponyorm.com/): The most pythonic ORM (cool "Talk Python"-episode [here](https://talkpython.fm/episodes/show/87/ponyorm-the-most-pythonic-orm-yet))
 * [PRAW](https://praw.readthedocs.io/): The Python Reddit API Wrapper
 * [Requests](http://python-requests.org/): HTTP for Humans. So simple, you gotta love it!
+* [Feedparser](https://pythonhosted.org/feedparser/): Universal feed parser, handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds.
 
 ## License
 
@@ -73,7 +74,7 @@ SOFTWARE.
 2. Collect popular comments from /r/Entrepreneur (24h)
 3. ~~Collect news stories on fair fashion~~
 4. Collect twitter posts
-5. Collect new blog posts from blog collection (RSS)
+5. ~~Collect new blog posts from blog collection (RSS)~~
 6. ~~Check for dupes~~
 7. ~~Push them to DB~~
 8. ~~Post summary to Slack channel~~
