@@ -19,6 +19,9 @@ class RedditEntry(Entry):
 class NewsriverEntry(Entry):
     source = Optional(str)
 
+class RSSEntry(Entry):
+    feed_title = Required(str)
+
 class Proverb(db.Entity):
     # man oh man, this is so stupid
     text = Required(str)

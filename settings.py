@@ -26,8 +26,9 @@ TWITTER_CONS_SECRET = os.environ["TWITTER_CONS_SECRET"]
 TWITTER_ACC_TOKEN = os.environ["TWITTER_ACC_TOKEN"]
 TWITTER_ACC_SECRET = os.environ["TWITTER_ACC_SECRET"]
 
-LOG_LEVEL = logging.ERROR
+LOG_LEVEL = logging.INFO
 MARK_PUBLISHED = True
+# MARK_PUBLISHED = False
 
 SUBREDDIT_LIST = ['entrepreneur', 'startups']
 TOP_POSTS_LIMIT = 5
@@ -53,9 +54,10 @@ SLACK_WEBHOOK = os.environ["SLACK_WEBHOOK"]
 
 #options: term, slack, email, html
 VIEW_FORMAT = 'slack'
+# VIEW_FORMAT = 'terminal'
 EMAIL_RECIPIENT = ''
 
-ITEM_TYPE_ORDER = ['reddit', 'newsriver']
+ITEM_TYPE_ORDER = ['rss', 'newsriver', 'reddit']
 
 TITLE_MAX_LENGTH = 100
 

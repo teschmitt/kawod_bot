@@ -10,7 +10,7 @@ def prepare_db():
     db.generate_mapping(create_tables=True)
 
 @db_session
-def push_to_db(reddit_items=None, newsriver_items=None):
+def push_to_db(reddit_items=None, newsriver_items=None, rss_items=None):
     commit_list = []
     if reddit_items is not None:
         logging.info('Pushing reddit items to database')
@@ -32,7 +32,6 @@ def push_to_db(reddit_items=None, newsriver_items=None):
                 logging.info('Reddit ID {} is a duplicate and already included in DB. Removed from commit stack.'.format(r['reddit_id']))
     else:
         logging.info('No reddit items available to push to database')
-
     if newsriver_items is not None:
         logging.info('Pushing newsriver items to database')
         for n in newsriver_items:
@@ -50,22 +49,43 @@ def push_to_db(reddit_items=None, newsriver_items=None):
                 logging.info('Newsriver URL {} is a duplicate and already included in DB. Removed from commit stack.'.format(n['url']))
     else:
         logging.info('No newsriver items available to push to database')
+    if rss_items is not None:
+        logging.info('Pushing RSS items to database')
+        for feed_data in rss_items:
+            feed_title = feed_data['feed_title']
+            for s in feed_data['items']:
+                if not is_dupe(item=s, item_type='rss_item'):
+                    commit_list.append(
+                        RSSEntry(
+                            feed = feed_title,
+                            title = s['title'],
+                            url = s['url'],
+                            timestamp = s['timestamp'],
+                            published = False
+                        )
+                    )
+                else:
+                    logging.info('RSS URL {} is a duplicate and already included in DB. Removed from commit stack.'.format(s['url']))
 
 def is_dupe(item, item_type):
     # try rewriting this with args: db_entity, criterium (entry item), target (db data)
     # no more stupid item_type and if-then-monsters.
     if item_type == 'reddit_item':
         return bool(count(e for e in RedditEntry if item['reddit_id'] == e.reddit_id))
-    if item_type == 'newsriver_item':
+    elif item_type == 'newsriver_item':
         return bool(count(e for e in NewsriverEntry if item['url'] == e.url))
+    elif item_type == 'rss_item':
+        return bool(count(e for e in RSSEntry if item['url'] == e.url))
 
 @db_session
 def get_unpublished_db_items():
     reddit_unpub = select(e for e in RedditEntry if e.published == False).order_by(desc(RedditEntry.score))
     newsriver_unpub = select(e for e in NewsriverEntry if e.published == False).order_by(desc(NewsriverEntry.timestamp))
+    rss_unpub = select(e for e in RSSEntry if e.published == False).order_by(desc(RSSEntry.timestamp))
     unpub = {
             'reddit': [r for r in reddit_unpub],
-            'newsriver': [n for n in newsriver_unpub]
+            'newsriver': [n for n in newsriver_unpub],
+            'rss': [f for f in rss_unpub]
         }
     return unpub
 
