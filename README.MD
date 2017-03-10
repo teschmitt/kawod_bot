@@ -1,4 +1,4 @@
-#Kawod Bot v0.1
+#Kawod Bot v0.2
 
 An early-stage content crawler to assist in content discovery in the eco- and fair-fashion world.
 
@@ -30,6 +30,7 @@ You will need a lot of other requirements (e.g. Slack API secrets, etc) that you
 
 ## History
 
+* v0.2 [Feature update]: Added RSS functionality and Terminal output option.
 * v0.1: Initial Version. Rudimentary functionality. Only works with SQLite as db, Reddit and Newswire as sources, and Slack as publishing channel.
 
 ## Credits
