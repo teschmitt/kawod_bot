@@ -15,6 +15,7 @@ __pycache__/
 .idea/
 .project/
 .tox/
+*.sublime-*
 
 # Build directories
 docs/_build/
