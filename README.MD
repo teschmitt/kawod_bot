@@ -78,7 +78,8 @@ SOFTWARE.
 6. ~~Check for dupes~~
 7. ~~Push them to DB~~
 8. ~~Post summary to Slack channel~~
-9. Document structures of scraped items!
+9. Better error handling... or any error handling at all for that matter
+10. Document structures of scraped items!
 
 ### OOP-Redesign:
 
