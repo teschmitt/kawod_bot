@@ -12,14 +12,14 @@ NR_QUERY = (
         'OR apparel OR shirt OR jeans OR klamotten OR shop*) '
     'AND language:de'
 )
-NR_QUERY_STRING = 'https://api.newsriver.io/v2/search?limit=15&query=' + urllib.parse.quote(NR_QUERY, safe='')
+NR_QUERY_STRING = 'https://api.newsriver.io/v2/search?sortBy=discoverDate&sortOrder=DESC&limit=15&query=' + urllib.parse.quote(NR_QUERY, safe='')
 
 
 REDDIT_CLIENT = os.environ["REDDIT_CLIENT"]
 REDDIT_SECRET = os.environ["REDDIT_SECRET"]
 REDDIT_USERNAME = os.environ["REDDIT_USERNAME"]
 REDDIT_PASSWORD = os.environ["REDDIT_PASSWORD"]
-REDDIT_USER_AGENT = "kawod bot v0.1"
+REDDIT_USER_AGENT = "kawod bot v0.2 -- See https://github.com/mrgnth/kawod_bot for more information"
 
 TWITTER_CONS_KEY = os.environ["TWITTER_CONS_KEY"]
 TWITTER_CONS_SECRET = os.environ["TWITTER_CONS_SECRET"]
@@ -41,8 +41,17 @@ RSS_LIST = [
         'https://fraujonason.blogspot.com/feeds/posts/default?alt=rss',
         'http://www.modeaffaire.de/feed/',
         'https://www.pinkgreenblog.de/feed/',
+        'http://www.thecoco.org/feed/',
+        'http://dariadaria.com/category/fair-fashion/feed',
+        'http://www.fashionfika.com/feed/',
+        'http://jaeckleundhoesle.de/feed/',
+        'https://www.nicetohavemag.de/feed/',
+        'http://www.sloris.de/feed/',
+        'https://www.noveaux-mag.com/feed/'
+
     ]
 
+# Web scraping not yet supported!
 SCRAPE_LIST = [
         'http://beyondfashion.de/'
     ]

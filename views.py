@@ -44,7 +44,7 @@ def format_items(unpublished_items=None):
         payload = {
             "attachments": [
                 {
-                    "fallback": 'PLAINTEXT',
+                    "fallback": 'No plaintext Version available',
                     "color": "#36a64f",
                     "pretext": zen_proverb,
                     "title": 'Kawod Bot News Review {}'.format(current_date),

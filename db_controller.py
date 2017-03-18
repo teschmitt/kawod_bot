@@ -57,7 +57,7 @@ def push_to_db(reddit_items=None, newsriver_items=None, rss_items=None):
                 if not is_dupe(item=s, item_type='rss_item'):
                     commit_list.append(
                         RSSEntry(
-                            feed = feed_title,
+                            feed_title = feed_title,
                             title = s['title'],
                             url = s['url'],
                             timestamp = s['timestamp'],
