@@ -1,5 +1,6 @@
 import tweepy, settings, logging, time
-from operator import itemgetter
+from datetime import datetime, timezone
+# from operator import itemgetter
 
 # This solution is not going to use Cursors because of a potential memory consumption
 # issue. These scripts are goint to be running on an old Raspberry Pi, 
@@ -36,7 +37,7 @@ def get_twitter_items(since_id=837610081323042880):
 
 def format_tweets(tweets):
     formatted_tweets = [{
-            'timestamp': datetime.utcfromtimestamp(t.created_at).replace(tzinfo=timezone.utc),
+            'timestamp': t.created_at.replace(tzinfo=timezone.utc),
             'url': 'https://twitter.com/{user}/status/{status}'.format(
                 user=t.user.screen_name,
                 status=t.id_str),
