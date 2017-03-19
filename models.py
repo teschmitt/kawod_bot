@@ -22,6 +22,13 @@ class NewsriverEntry(Entry):
 class RSSEntry(Entry):
     feed_title = Required(str)
 
+class TwitterEntry(Entry):
+    twitter_id = Required(int, size=64)
+    retweet_count = Optional(int)
+    favorite_count = Optional(int)
+    twitter_user = Required(str)
+    twitter_weight = Optional(int)
+
 class Proverb(db.Entity):
     # man oh man, this is so stupid
     text = Required(str)

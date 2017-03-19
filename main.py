@@ -4,7 +4,7 @@
 import settings, logging, db_controller, views
 
 # Alert the bots!
-from bots import reddit_bot, newsriver_bot, rss_bot, slack_bot
+from bots import reddit_bot, newsriver_bot, rss_bot, slack_bot, twitter_bot
 
 
 # setup the logger
@@ -17,12 +17,14 @@ if __name__ == '__main__':
     reddit_items = reddit_bot.get_reddit_items()
     newsriver_items = newsriver_bot.get_newsriver_items()
     rss_items = rss_bot.get_feed_items()
+    twitter_items = twitter_bot.get_twitter_items()
 
     db_controller.prepare_db()
     db_controller.push_to_db(
             reddit_items=reddit_items, 
             newsriver_items=newsriver_items,
-            rss_items=rss_items
+            rss_items=rss_items,
+            twitter_items=twitter_items
         )
 
     unpublished_items = db_controller.get_unpublished_db_items()

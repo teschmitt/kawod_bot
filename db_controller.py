@@ -6,11 +6,11 @@ from models import *
 def prepare_db():
     # these args will probably only work with sqlite.
     db.bind(settings.DB_TYPE, settings.DB_NAME, create_db=True)
-    sql_debug(True)
+    sql_debug(settings.SQL_DEBUG)
     db.generate_mapping(create_tables=True)
 
 @db_session
-def push_to_db(reddit_items=None, newsriver_items=None, rss_items=None):
+def push_to_db(reddit_items=None, newsriver_items=None, rss_items=None, twitter_items=None):
     commit_list = []
     if reddit_items is not None:
         logging.info('Pushing reddit items to database')
@@ -66,6 +66,25 @@ def push_to_db(reddit_items=None, newsriver_items=None, rss_items=None):
                     )
                 else:
                     logging.info('RSS URL {} is a duplicate and already included in DB. Removed from commit stack.'.format(s['url']))
+    if twitter_items is not None:
+        logging.info('Pushing Twitter items to database')
+        for t in twitter_items:
+            if not is_dupe(item=t, item_type='twitter_item'):
+                commit_list.append(
+                    TwitterEntry(
+                        title = t['title'],
+                        url = t['url'],
+                        timestamp = t['timestamp'],
+                        twitter_id = t['twitter_id'],
+                        retweet_count = t['retweet_count'],
+                        favorite_count = t['favorite_count'],
+                        twitter_user = t['twitter_user'],
+                        twitter_weight = t['twitter_weight'],
+                        published = False
+                    )
+                )
+            else:
+                logging.info('Twitter Status {} is a duplicate and already included in DB. Removed from commit stack.'.format(t['twitter_id']))
 
 def is_dupe(item, item_type):
     # try rewriting this with args: db_entity, criterium (entry item), target (db data)
@@ -76,16 +95,20 @@ def is_dupe(item, item_type):
         return bool(count(e for e in NewsriverEntry if item['url'] == e.url))
     elif item_type == 'rss_item':
         return bool(count(e for e in RSSEntry if item['url'] == e.url))
+    elif item_type == 'twitter_item':
+        return bool(count(e for e in TwitterEntry if item['twitter_id'] == e.twitter_id))
 
 @db_session
 def get_unpublished_db_items():
     reddit_unpub = select(e for e in RedditEntry if e.published == False).order_by(desc(RedditEntry.score))
     newsriver_unpub = select(e for e in NewsriverEntry if e.published == False).order_by(desc(NewsriverEntry.timestamp))
     rss_unpub = select(e for e in RSSEntry if e.published == False).order_by(desc(RSSEntry.timestamp))
+    twitter_unpub = select(e for e in TwitterEntry if e.published == False).order_by(desc(TwitterEntry.twitter_weight))
     unpub = {
             'reddit': [r for r in reddit_unpub],
             'newsriver': [n for n in newsriver_unpub],
-            'rss': [f for f in rss_unpub]
+            'rss': [f for f in rss_unpub],
+            'twitter': [t for t in twitter_unpub]
         }
     return unpub
 
