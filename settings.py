@@ -20,7 +20,7 @@ REDDIT_CLIENT = os.environ["REDDIT_CLIENT"]
 REDDIT_SECRET = os.environ["REDDIT_SECRET"]
 REDDIT_USERNAME = os.environ["REDDIT_USERNAME"]
 REDDIT_PASSWORD = os.environ["REDDIT_PASSWORD"]
-REDDIT_USER_AGENT = "kawod bot v0.2 -- See https://github.com/mrgnth/kawod_bot for more information"
+REDDIT_USER_AGENT = "kawod bot v0.3 -- See https://github.com/mrgnth/kawod_bot for more information"
 
 TWITTER_CONS_KEY = os.environ["TWITTER_CONS_KEY"]
 TWITTER_CONS_SECRET = os.environ["TWITTER_CONS_SECRET"]

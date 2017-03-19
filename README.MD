@@ -1,4 +1,4 @@
-#Kawod Bot v0.2
+# Kawod Bot v0.3
 
 An early-stage content crawler to assist in content discovery in the eco- and fair-fashion world.
 
@@ -30,6 +30,7 @@ You will need a lot of other requirements (e.g. Slack API secrets, etc) that you
 
 ## History
 
+* v0.3 [Feature update]: Added Twitter functionality
 * v0.2 [Feature update]: Added RSS functionality and Terminal output option.
 * v0.1: Initial Version. Rudimentary functionality. Only works with SQLite as db, Reddit and Newswire as sources, and Slack as publishing channel.
 
@@ -70,16 +71,16 @@ SOFTWARE.
 
 ### What is this supposed to do:
 
-1. ~~Collect popular posts from /r/Entrepreneur (24h)~~
-2. Collect popular comments from /r/Entrepreneur (24h)
-3. ~~Collect news stories on fair fashion~~
-4. Collect twitter posts
-5. ~~Collect new blog posts from blog collection (RSS)~~
-6. ~~Check for dupes~~
-7. ~~Push them to DB~~
-8. ~~Post summary to Slack channel~~
-9. Better error handling... or any error handling at all for that matter
-10. Document structures of scraped items!
+- [X] Collect popular posts from /r/Entrepreneur (24h)
+- [ ] Collect popular comments from /r/Entrepreneur (24h)
+- [X] Collect news stories on fair fashion
+- [X] Collect twitter posts
+- [X] Collect new blog posts from blog collection (RSS)
+- [X] Check for dupes
+- [X] Push them to DB
+- [X] Post summary to Slack channel
+- [ ] Better error handling... or any error handling at all for that matter
+- [ ] Document structures of scraped items!
 
 ### OOP-Redesign:
 
