@@ -19,26 +19,26 @@ def format_items(unpublished_items=None):
     rendered_items = ''
 
     for item_type in settings.ITEM_TYPE_ORDER:
-        if item_type == 'reddit':
+        if item_type == 'reddit' and len(unpublished_items['reddit']) > 0:
             rendered_items += '\n\n*Reddit Update ___________________________________________________________________________*\nFrom r/'
             rendered_items += ', r/'.join(settings.SUBREDDIT_LIST)
             rendered_items += '\n\n'
             for r in unpublished_items['reddit']:
                 rendered_items += '> [{score}] {title} | {url}\n\n'.format(score=r.score, title=cap(r.title, settings.TITLE_MAX_LENGTH), url=r.url)
             rendered_items += '\n\n\n'
-        elif item_type == 'newsriver':
+        elif item_type == 'newsriver' and len(unpublished_items['newsriver']) > 0:
             rendered_items += '\n\n*Newsriver Finds _________________________________________________________________________*\n\n'
             for n in unpublished_items['newsriver']:
                 rendered_items += '> [{date}: {source}] {title} | {url}\n\n'.format(source=n.source, title=cap(n.title, settings.TITLE_MAX_LENGTH), date=n.timestamp[:10], url=n.url)
             rendered_items += '\n\n\n'
-        elif item_type == 'rss':
+        elif item_type == 'rss' and len(unpublished_items['rss']) > 0:
             rendered_items += '\n\n*Fair Fashion Blogs ______________________________________________________________________*\n\n'
             for feed_title in structured_rss_items:
                 rendered_items += '\n\n-------*{ft}* -------\n\n'.format(ft=feed_title)
                 for s in structured_rss_items[feed_title]['items']:
                     rendered_items += '> [{date}] {title} | {url}\n\n'.format(title=cap(s.title, settings.TITLE_MAX_LENGTH), date=s.timestamp[:10], url=s.url)
             rendered_items += '\n\n\n'
-        elif item_type == 'twitter':
+        elif item_type == 'twitter' and len(unpublished_items['twitter']) > 0:
             rendered_items += '\n\n*Fair Fashion Tweets _____________________________________________________________________*\n\n'
             for t in unpublished_items['twitter']:
                 rendered_items += '> [{date}] {title} | Re:({re}) Fav:({fav}) | {url}\n\n'.format(title=t.title, date=str(t.timestamp)[:10], url=t.url, re=t.retweet_count, fav=t.favorite_count)

@@ -41,8 +41,8 @@ TWITTER_RETRIES = 3
 TWITTER_RETRY_SLEEP = 10
 
 LOG_LEVEL = logging.INFO
-# MARK_PUBLISHED = True
-MARK_PUBLISHED = False
+MARK_PUBLISHED = True
+# MARK_PUBLISHED = False
 
 SUBREDDIT_LIST = ['entrepreneur', 'startups']
 TOP_POSTS_LIMIT = 5
@@ -76,8 +76,8 @@ DB_NAME = 'kabot.sqlite'
 SLACK_WEBHOOK = os.environ["SLACK_WEBHOOK"]
 
 #options: term, slack, email, html
-# VIEW_FORMAT = 'slack'
-VIEW_FORMAT = 'terminal'
+VIEW_FORMAT = 'slack'
+# VIEW_FORMAT = 'terminal'
 EMAIL_RECIPIENT = ''
 
 ITEM_TYPE_ORDER = ['twitter', 'rss', 'newsriver', 'reddit']

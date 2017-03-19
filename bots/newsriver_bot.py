@@ -11,9 +11,16 @@ def get_newsriver_items():
                 # Convert string to datetime: https://stackoverflow.com/a/466376
                 'timestamp': datetime.strptime(art['discoverDate'], '%Y-%m-%dT%H:%M:%S.%f%z'),
                 'url': art['url'],
-                'source': art['website']['name']
+                'source': extract_source(art)
             }
             for art in response.json()
         ]
     logging.info('Newsriver bot finished')
     return newsriver_items
+
+def extract_source(art):
+    # Not every article comes with a 'website'-key
+    try:
+        return art['website']['name']
+    except KeyError as e:
+        return 'Unknown Wesite'
