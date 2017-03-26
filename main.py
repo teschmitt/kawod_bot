@@ -13,13 +13,13 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 if __name__ == '__main__':
+    db_controller.prepare_db()
 
     reddit_items = reddit_bot.get_reddit_items()
     newsriver_items = newsriver_bot.get_newsriver_items()
     rss_items = rss_bot.get_feed_items()
-    twitter_items = twitter_bot.get_twitter_items()
+    twitter_items = twitter_bot.get_twitter_items(db_controller.get_last_tweet_id())
 
-    db_controller.prepare_db()
     db_controller.push_to_db(
             reddit_items=reddit_items, 
             newsriver_items=newsriver_items,

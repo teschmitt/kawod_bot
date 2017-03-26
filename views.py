@@ -11,8 +11,7 @@ def cap(s, l):
 
 def format_items(unpublished_items=None):
     msg_format = settings.VIEW_FORMAT or 'terminal'
-    # zen_proverb = db_controller.get_zen_proverb()
-    zen_proverb = 'Sorry excuse for a Zen Proverb'
+    zen_proverb = db_controller.get_zen_proverb()
     current_date = datetime.datetime.now().strftime('%A, %d. %B %Y')
     epoch_time = int(time.time())
     structured_rss_items = structure_rss_items(unpublished_items['rss'])

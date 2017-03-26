@@ -122,3 +122,9 @@ def mark_published(unpublished_items=None):
 @db_session
 def get_zen_proverb():
     return Proverb.select_random(1)[0].text     # quick 'n dirty, y'all!
+
+@db_session
+def get_last_tweet_id():
+    # return the ID of the most recent Twitter entry in DB
+    return max(t.twitter_id for t in TwitterEntry)
+

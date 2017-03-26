@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 # issue. These scripts are goint to be running on an old Raspberry Pi, 
 # so memory is an issue. More info here: https://stackoverflow.com/a/23996991
 
-def get_twitter_items(since_id=837610081323042880):
+def get_twitter_items(since_id):
     api = get_twitter_api()
     last_id = -1
     searched_tweets = []
@@ -18,7 +18,7 @@ def get_twitter_items(since_id=837610081323042880):
             new_tweets = api.search(
                 q=settings.TWITTER_QUERY, 
                 lang=settings.TWITTER_LANG,
-                since_id=since_id,
+                # since_id=str(since_id),
                 max_id=str(last_id - 1), 
                 count=count
             )
@@ -27,12 +27,12 @@ def get_twitter_items(since_id=837610081323042880):
             searched_tweets.extend(new_tweets)
             last_id = new_tweets[-1].id
         except tweepy.TweepError as e:
-            if retry_count > TWITTER_RETRIES:
+            if retry_count > settings.TWITTER_RETRIES:
                 logging.error('{}. Permanently failed after {} retries.'.format(e, retry_count))
                 break
-            logging.error('{}. Retrying in {} seconds. {} more retries.'.format(e, TWITTER_RETRY_SLEEP, TWITTER_RETRIES-retry_count))
+            logging.error('{}. Retrying in {} seconds. {} more retries.'.format(e, settings.TWITTER_RETRY_SLEEP, settings.TWITTER_RETRIES-retry_count))
             retry_count += 1
-            time.sleep(TWITTER_RETRY_SLEEP)
+            time.sleep(settings.TWITTER_RETRY_SLEEP)
     return format_tweets(searched_tweets)
 
 def format_tweets(tweets):
