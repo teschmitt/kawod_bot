@@ -36,9 +36,11 @@ TWITTER_QUERY = (
     'kleider OR shirt OR shirts)'
 )
 TWITTER_LANG = 'de'
-TWITTER_MAX_TWEETS = 100
-TWITTER_RETRIES = 3
+TWITTER_MAX_TWEETS = 1000
+TWITTER_RETRIES = 2
 TWITTER_RETRY_SLEEP = 10
+TWITTER_MAX_SAVED_TWEETS = 0       # set to 0 to save and publish all
+TWITTER_SORT_KEY = 'twitter_weight'
 
 LOG_LEVEL = logging.INFO
 MARK_PUBLISHED = True
