@@ -1,6 +1,7 @@
 # Kawod Bot specifics
 tools/
 *.sqlite
+logs/
 
 # Cached builds
 __pycache__/
