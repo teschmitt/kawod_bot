@@ -49,13 +49,13 @@ def format_items(unpublished_items=None):
         payload = {
             "attachments": [
                 {
-                    "fallback": 'No plaintext Version available',
+                    "fallback": 'Kawod Bot News Review {}'.format(current_date),
                     "color": "#36a64f",
                     "pretext": zen_proverb,
                     "title": 'Kawod Bot News Review {}'.format(current_date),
                     "text": rendered_items,
                     "mrkdwn_in": ["text", "pretext"],
-                    "footer": "Kawod Bot v0.1",
+                    "footer": "Kawod Bot v0.3",
                     "ts": epoch_time
                 }
             ]
